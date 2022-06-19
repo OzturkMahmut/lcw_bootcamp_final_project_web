@@ -4,28 +4,30 @@ Feature: Home Page
   @Banner
   Scenario: Check Banner
     Given User is on home page
-    Then User should see Banner
+    Then  User should see Banner
 
   @Card @Check
-  Scenario Outline: Check Card
-    Given Enes is home page
-    Then should see "<card1>" card
-    Then should see "<card2>" card
-    Then should see "<card3>" card
-    Then should see "<card4>" card
-    Then should see "<card5>" card
-    Then should see "<card6>" card
+  Scenario Outline: Check Categories
+    Given User is on home page
+    Then  User should see "<category1>" category
+    Then  User should see "<category2>" category
+    Then  User should see "<category3>" category
+    Then  User should see "<category4>" category
+    Then  User should see "<category5>" category
+    Then  User should see "<category6>" category
+    Then  User should see "<category7>" category
+    Then  User should see "<category8>" category
     Examples:
-      | card1    | card2 | card3   | card4   | card5        | card6 |
-      | Elements | Forms | Windows | Widgets | Interactions | Book  |
+      | category1 | category2 | category3 | category4 | category5 | category6 | category7 |   category8    |
+      |   KADIN   |   ERKEK   |   ÇOCUK   |  BEBEK    |  AYAKKABI |  AKSESUAR |  EV&YAŞAM | DİĞER MARKALAR |
 
-  @Card @Click
-  Scenario Outline: Click <card> Card
-    Given Enes is home page
-    When click "<card>" card
-    Then should see "<pageName>" Page
+  @Category @Click
+  Scenario Outline: Go to category
+    Given User is on home page
+    When  User clicks "<subCategory>" subcategory in "<category>" category
+    Then  User should see "<productType>" page
     Examples:
-      | card     | pageName |
-      | Elements | Elements |
-      | Forms    | Forms    |
+      | subCategory   | category | productType |
+      |    Bluz       |  Kadın   |    Bluz     |
+
 
