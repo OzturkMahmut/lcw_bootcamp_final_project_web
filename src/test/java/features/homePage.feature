@@ -3,8 +3,8 @@ Feature: Home Page
 
   @Banner
   Scenario: Check Banner
-    Given Enes is home page
-    Then should see Banner
+    Given User is on home page
+    Then User should see Banner
 
   @Card @Check
   Scenario Outline: Check Card
