@@ -1,8 +1,8 @@
 @ProductsListPage
-Feature: Products Page
+Feature: ProductList Page
 
   @Category @Click @Filter
-  Scenario Outline: Go to category
+  Scenario Outline: Choose a Product
     Given User is on home page
     When  User clicks "<subCategory>" subcategory in "<category>" category
     Then  User should see "<productType>" page

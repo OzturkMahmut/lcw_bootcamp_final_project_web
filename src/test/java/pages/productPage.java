@@ -16,6 +16,7 @@ public class productPage {
     By sizes = By.cssSelector("div .option-size a");
     By selectedSize = By.cssSelector("div .option-size .selected");
     By addToCartContainer = By.cssSelector(".add-to-cart-container");
+    By myCartButton = By.cssSelector(".cart-dropdown  #shopping-cart");
 
 
     public productPage(WebDriver driver) {
@@ -39,6 +40,12 @@ public class productPage {
 
     public void addToCart() {
         elementHelper.click(addToCartContainer);
+    }
+
+    public void clickElement(String buttonName) {
+        if (buttonName.equals("Sepetim")){
+            elementHelper.click(myCartButton);
+        }
     }
 }
 

@@ -30,4 +30,10 @@ public class productPageSteps {
     public void addProductToCart() {
         productPage.addToCart();
     }
+
+    @When("User clicks {string} button")
+    public void clickButton(String buttonName) {
+        productPage.clickElement(buttonName);
+    }
+
 }

@@ -154,6 +154,7 @@ public class ElementHelper {
         boolean find = false;
         List<WebElement> elements = findElements(key);
         for (WebElement element : elements) {
+            System.out.println(element.getText());
             if (element.getText().contains(text)) {
                 action.moveToElement(element).perform();
                 find = true;
