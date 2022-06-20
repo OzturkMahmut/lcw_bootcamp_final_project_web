@@ -19,7 +19,7 @@ Feature: Home Page
     Then  User should see "<category8>" category
     Examples:
       | category1 | category2 | category3 | category4 | category5 | category6 | category7 |   category8    |
-      |   KADIN   |   ERKEK   |   ÇOCUK   |  BEBEK    |  AYAKKABI |  AKSESUAR |  EV&YAŞAM | DİĞER MARKALAR |
+      |   KADIN   |   ERKEK   |   ÇOCUK   |  BEBEK    |  AYAKKABI |  AKSESUAR |  EV & YAŞAM | DİĞER MARKALAR |
 
   @Category @Click
   Scenario Outline: Go to category
@@ -28,6 +28,6 @@ Feature: Home Page
     Then  User should see "<productType>" page
     Examples:
       | subCategory   | category | productType |
-      |    Bluz       |  Kadın   |    Bluz     |
+      |    Bluz       |  KADIN   |    Bluz     |
 
 

@@ -74,6 +74,15 @@ public class ElementHelper {
         return wait.until(ExpectedConditions.textToBe(key, text));
     }
 
+    public boolean checkElementTextContains(By selector, String text) {
+        boolean isFound = false;
+        WebElement element = findElement(selector);
+        if (element.getText().contains(text)) {
+            isFound = true;
+        }
+        Assert.assertEquals(true, isFound);
+        return isFound;
+    }
     /**
      * @param key
      */
@@ -116,15 +125,29 @@ public class ElementHelper {
     }
 
     /**
-     * @param key
+     * @param selector
      * @param text
      */
-    public void clickElementWithText(By key, String text) {
+    public void clickElementWithText(By selector, String text) {
+        boolean find = false;
+        List<WebElement> elements = findElements(selector);
+        for (WebElement element : elements) {
+            if (element.getText().contains(text)) {
+                element.click();
+                find = true;
+                break;
+            }
+        }
+        Assert.assertEquals(true, find);
+    }
+
+
+    public void hoverOverElementWithText(By key, String text) {
         boolean find = false;
         List<WebElement> elements = findElements(key);
         for (WebElement element : elements) {
             if (element.getText().contains(text)) {
-                element.click();
+                action.moveToElement(element).perform();
                 find = true;
                 break;
             }

@@ -20,7 +20,7 @@ public class pagesSteps {
     @Given("Enes is {string} page")
     public void enesIsPage(String page) {
         homePage.checkHomePage();
-        homePage.clickCard(page);
+
         pag.checkHeader(page);
     }
 
@@ -32,7 +32,6 @@ public class pagesSteps {
     @Given("Enes is at {string} under {string} page")
     public void enesIsBelowPage(String menu,String underMenu) {
         homePage.checkHomePage();
-        homePage.clickCard(menu);
         pag.checkHeader(menu);
         pag.clickMenu(underMenu);
         pag.checkHeader(underMenu);

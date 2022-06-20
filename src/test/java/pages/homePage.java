@@ -2,14 +2,20 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import util.ElementHelper;
+
+import java.util.List;
 
 
 public class homePage {
 
-    By banner = By.cssSelector(".home-banner");
-    By cards = By.cssSelector(".card.mt-4.top-card h5");
+    By brandLogo = By.cssSelector(".main-header-logo");
+    By categories = By.cssSelector("div .menu-nav__lists .menu-header-item .menu-header-item__title");
+    By subCategories = By.cssSelector("div .menu-nav__lists .menu-header-item .mega-menu .zone-item a");
+    By cookiesAcceptButton = By.cssSelector("div .cookieseal-banner-body button:nth-of-type(2) ");
+
 
     WebDriver driver;
     WebDriverWait wait;
@@ -23,21 +29,24 @@ public class homePage {
 
 
     public void checkHomePage() {
-        elementHelper.checkElementPresence(banner);
+        elementHelper.checkElementPresence(brandLogo);
+        elementHelper.click(cookiesAcceptButton); //Accepts the cookies in case cookies banner blocks any future action
     }
 
     public void checkBanner() {
-        elementHelper.checkElementPresence(banner);
+        elementHelper.checkElementPresence(brandLogo);
     }
 
-    public void checkCard(String name) {
-        elementHelper.checkElementWithText(cards, name);
-    }
-
-
-    public void clickCard(String name) {
-        elementHelper.clickElementWithText(cards, name);
+    public void checkCategory(String categoryName) {
+        elementHelper.checkElementWithText(categories,categoryName);
     }
 
 
+    public void hoverOnElement(String category) {
+        elementHelper.hoverOverElementWithText(categories,category);
+    }
+
+    public void clickElement(String subCategory) {
+        elementHelper.clickElementWithText(subCategories,subCategory);
+    }
 }

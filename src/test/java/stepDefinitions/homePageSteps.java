@@ -11,24 +11,25 @@ public class homePageSteps {
     homePage homePage = new homePage(DriverFactory.getDriver());
 
 
-    @Given("Enes is home page")
-    public void enes_is_home_page() {
+    @Given("User is on home page")
+    public void isOnHomePage() {
         homePage.checkHomePage();
     }
 
-    @Then("should see Banner")
-    public void should_see_banner() {
+    @Then("User should see Banner")
+    public void shouldSeeBanner() {
         homePage.checkBanner();
     }
 
-    @Then("should see {string} card")
-    public void should_see_card(String string) {
-        homePage.checkCard(string);
+    @Then("User should see {string} category")
+    public void shouldSeeCategory(String categoryName) {
+        homePage.checkCategory(categoryName);
     }
 
-    @When("click {string} card")
-    public void clickCardCard(String card) {
-        homePage.clickCard(card);
+    @When("User clicks {string} subcategory in {string} category")
+    public void clickSubcategory(String subCategory, String category) {
+        homePage.hoverOnElement(category);
+        homePage.clickElement(subCategory);
     }
 
 
