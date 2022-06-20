@@ -13,6 +13,9 @@ public class productPage {
     ElementHelper elementHelper;
 
     By productCode = By.cssSelector("div .product-code");
+    By sizes = By.cssSelector("div .option-size a");
+    By selectedSize = By.cssSelector("div .option-size .selected");
+    By addToCartContainer = By.cssSelector(".add-to-cart-container");
 
 
     public productPage(WebDriver driver) {
@@ -24,6 +27,18 @@ public class productPage {
 
     public void checkProductCodePresence() {
         elementHelper.checkElementPresence(productCode);
+    }
+
+    public void chooseSize(String size) {
+        elementHelper.clickElementWithText(sizes,size);
+    }
+
+    public void isSizeSelected(String size) {
+        elementHelper.checkElementText(selectedSize,size);
+    }
+
+    public void addToCart() {
+        elementHelper.click(addToCartContainer);
     }
 }
 

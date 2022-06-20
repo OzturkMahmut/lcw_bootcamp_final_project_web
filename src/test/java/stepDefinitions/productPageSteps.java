@@ -16,4 +16,18 @@ public class productPageSteps {
 
     }
 
+    @When("User choose size {string}")
+    public void chooseSize(String size) {
+        productPage.chooseSize(size);
+    }
+
+    @Then("User should see size {string} selected")
+    public void shouldSeeSizeSelected(String size) {
+        productPage.isSizeSelected(size);
+    }
+
+    @Then("User adds the product to the cart")
+    public void addProductToCart() {
+        productPage.addToCart();
+    }
 }
