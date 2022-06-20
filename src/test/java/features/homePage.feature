@@ -6,7 +6,7 @@ Feature: Home Page
     Given User is on home page
     Then  User should see Banner
 
-  @Card @Check
+  @Category @Check
   Scenario Outline: Check Categories
     Given User is on home page
     Then  User should see "<category1>" category

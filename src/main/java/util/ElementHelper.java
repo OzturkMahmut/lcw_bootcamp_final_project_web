@@ -43,10 +43,18 @@ public class ElementHelper {
     }
 
     /**
-     * @param key
+     * @param selector
      */
-    public void click(By key) {
-        findElement(key).click();
+    public void click(By selector) {
+        findElement(selector).click();
+    }
+
+    /**
+     * @param element
+     */
+    public void click(WebElement element) {
+        scrollToElement(element);
+        element.click();
     }
 
     /**

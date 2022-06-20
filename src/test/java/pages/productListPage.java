@@ -13,6 +13,11 @@ public class productListPage {
     ElementHelper elementHelper;
 
     By header = By.cssSelector("div .product-list-banner h1");
+    By filterOptions = By.cssSelector("div .color-filter-option__text");
+    By appliedFilters = By.cssSelector("div .applied-filters__filter");
+    By appliedFilterValues = By.cssSelector("div .applied-filters__value");
+    By productList = By.cssSelector(".product-card.product-card--one-of-4");
+
 
     public productListPage(WebDriver driver) {
         this.driver = driver;
@@ -24,4 +29,17 @@ public class productListPage {
         elementHelper.checkElementTextContains(header,headerText);
     }
 
+    public void filterProductBy(String filterType, String filterValue) {
+        elementHelper.clickElementWithText(filterOptions,filterValue);
+    }
+
+    public void checkAppliedFilter(String filterType, String filterValue) {
+        elementHelper.checkElementWithText(appliedFilters,filterType);
+        elementHelper.checkElementWithText(appliedFilterValues,filterValue);
+
+    }
+
+    public void clickElementWithIndex(int index) {
+        elementHelper.click(elementHelper.findElements(productList).get(index+1));
+    }
 }
