@@ -15,4 +15,7 @@ public class cartPageSteps {
     public void shouldSee(String elementName) {
         cartPage.checkElement(elementName);
     }
+
+
+
 }

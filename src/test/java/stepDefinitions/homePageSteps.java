@@ -28,9 +28,12 @@ public class homePageSteps {
 
     @When("User clicks {string} subcategory in {string} category")
     public void clickSubcategory(String subCategory, String category) {
-        homePage.hoverOnElement(category);
+        homePage.hoverOverCategory(category);
         homePage.clickElement(subCategory);
     }
 
-
+    @When("User hovers over Login button and clicks Sign Up Button")
+    public void clickSignUpButton() {
+        homePage.hoverOverLoginClickSignUp();
+    }
 }

@@ -15,6 +15,8 @@ public class homePage {
     By categories = By.cssSelector("div .menu-nav__lists .menu-header-item .menu-header-item__title");
     By subCategories = By.cssSelector("div .menu-nav__lists .menu-header-item .mega-menu .zone-item a");
     By cookiesAcceptButton = By.cssSelector("div .cookieseal-banner-body button:nth-of-type(2) ");
+    By loginButton = By.cssSelector("div .cart-dropdown:nth-child(1)");
+    By signUpButton = By.cssSelector(" .cart-action__btn--bg-white");
 
 
     WebDriver driver;
@@ -42,8 +44,13 @@ public class homePage {
     }
 
 
-    public void hoverOnElement(String category) {
+    public void hoverOverCategory(String category) {
         elementHelper.hoverOverElementWithText(categories,category);
+    }
+
+    public void hoverOverLoginClickSignUp() {
+        elementHelper.hoverOverElement(loginButton);
+        elementHelper.click(signUpButton);
     }
 
     public void clickElement(String subCategory) {
