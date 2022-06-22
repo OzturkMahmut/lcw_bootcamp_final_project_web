@@ -14,7 +14,7 @@ public class signUpPageSteps {
         signUpPage.checkPageTitle(pageTitle);
     }
 
-    @Then("User should see {string} element")
+    @Then("User should see {string} element in sign-up page")
     public void shouldSeeFormElement(String signUpFormElement) {
         signUpPage.checkSignUpFormElement(signUpFormElement);
     }
@@ -33,4 +33,6 @@ public class signUpPageSteps {
     public void clicksButton(String element) {
         signUpPage.clickElement(element);
     }
+
+
 }

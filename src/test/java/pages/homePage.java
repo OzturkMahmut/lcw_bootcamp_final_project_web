@@ -42,12 +42,12 @@ public class homePage {
     }
 
     public void checkCategory(String categoryName) {
-        elementHelper.checkElementWithText(categories,categoryName);
+        elementHelper.checkElementWithText(categories, categoryName);
     }
 
 
     public void hoverOverCategory(String category) {
-        elementHelper.hoverOverElementWithText(categories,category);
+        elementHelper.hoverOverElementWithText(categories, category);
     }
 
     public void hoverOverLoginClickSignUp() {
@@ -55,7 +55,17 @@ public class homePage {
         elementHelper.click(signUpButton);
     }
 
-    public void clickElement(String subCategory) {
-        elementHelper.clickElementWithText(subCategories,subCategory);
+    public void clickSubCategory(String subCategory) {
+        elementHelper.clickElementWithText(subCategories, subCategory);
     }
+
+    public void clickElement(String elementName) {
+        switch (elementName) {
+            case "Login Button":
+                elementHelper.click(loginButton);
+                break;
+            default:
+        }
+    }
+
 }

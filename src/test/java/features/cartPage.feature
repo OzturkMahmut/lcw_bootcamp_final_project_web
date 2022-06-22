@@ -14,10 +14,10 @@ Feature: Cart Page
     Then  User should see size "<size>" selected
     Then  User adds the product to the cart
     When  User clicks "Sepetim" button
-    Then  User should see "Title"
-    Then  User should see "ProductCode"
-    Then  User should see "ProductNumber"
-    Then  User should see "ProductSize"
+    Then  User should see "Title" in cart page
+    Then  User should see "ProductCode" in cart page
+    Then  User should see "ProductNumber" in cart page
+    Then  User should see "ProductSize" in cart page
     Examples:
       | subCategory   | category |   productType    |    filterValue    | filterType  | size |
       |    Bluz       |  KADIN   |       Bluz       |       Siyah       |  Renk       |  M   |

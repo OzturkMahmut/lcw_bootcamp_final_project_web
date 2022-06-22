@@ -11,7 +11,7 @@ public class cartPageSteps {
 
 
 
-    @Then("User should see {string}")
+    @Then("User should see {string} in cart page")
     public void shouldSee(String elementName) {
         cartPage.checkElement(elementName);
     }
