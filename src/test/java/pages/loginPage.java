@@ -103,4 +103,19 @@ public class loginPage {
                 break;
         }
     }
+
+    public void fillOutInputContainer(String container, String input) {
+        switch (container) {
+            case "Email":
+                elementHelper.sendKey(emailInputContainer, input);
+                break;
+            case "Password":
+                elementHelper.sendKey(passwordInputContainer, input);
+                break;
+            case "Phone Number":
+                elementHelper.sendKey(phoneInputContainer, input);
+                break;
+            default:
+        }
+    }
 }

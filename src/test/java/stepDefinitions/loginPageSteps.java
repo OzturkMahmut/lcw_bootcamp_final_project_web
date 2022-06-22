@@ -23,4 +23,9 @@ public class loginPageSteps {
     public void shouldSeeTextInElement(String text, String elementName) {
         loginPage.checkElementText(text,elementName);
     }
+
+    @When("User fills out the {string} input container with  {string} in login page")
+    public void fillsOutInputContainer(String container, String input) {
+        loginPage.fillOutInputContainer(container,input);
+    }
 }

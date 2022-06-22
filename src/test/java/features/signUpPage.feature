@@ -29,9 +29,9 @@ Feature: Sign Up Page
     Given User is on home page
     When  User hovers over Login button and clicks Sign Up Button in home page
     Then  User should see "<pageTitle>" pageTitle
-    When  User fills out the "Email" input container with  "<emailInput>"
-    When  User fills out the "Password" input container with  "<passwordInput>"
-    When  User fills out the "Phone Number" input container with  "<phoneNumberInput>"
+    When  User fills out the "Email" input container with  "<emailInput>" in sign up page
+    When  User fills out the "Password" input container with  "<passwordInput>" in sign up page
+    When  User fills out the "Phone Number" input container with  "<phoneNumberInput>" in sign up page
     When  User checks "Terms of Use" checkbox
     When  User clicks  "Sign Up Button" element
     Then  User should see "Phone Confirmation Pop Up" element in sign-up page

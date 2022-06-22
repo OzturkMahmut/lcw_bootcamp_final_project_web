@@ -41,4 +41,9 @@ public class homePageSteps {
     public void clicksElement(String elementName) {
         homePage.clickElement(elementName);
     }
+
+    @Then("User should see {string} text in {string} element in home page")
+    public void shouldSeeTextInElement(String text, String elementName) {
+        homePage.checkElementText(text,elementName);
+    }
 }

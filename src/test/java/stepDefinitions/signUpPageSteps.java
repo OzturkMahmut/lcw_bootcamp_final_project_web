@@ -19,7 +19,7 @@ public class signUpPageSteps {
         signUpPage.checkSignUpFormElement(signUpFormElement);
     }
 
-    @When("User fills out the {string} input container with  {string}")
+    @When("User fills out the {string} input container with  {string} in sign up page")
     public void fillOutInputContainer(String container, String input) {
         signUpPage.fillOutInputContainer(container,input);
     }

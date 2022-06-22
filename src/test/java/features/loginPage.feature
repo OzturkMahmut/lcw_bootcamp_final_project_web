@@ -44,3 +44,18 @@ Feature: Login Page
     Examples:
       | pageTitle                |  formTitle   | passwordPlaceholder  |rememberMeText|
       | Üye Girişi - LC Waikiki  |  GİRİŞ YAP   | Şifreniz             |Beni hatırla  |
+
+
+  @Login @SuccessfulLogin
+  Scenario Outline: Check Phone Components
+    Given User is on home page
+    When  User clicks "Login Button" element in homepage
+    Then  User should see "<pageTitle>" pageTitle
+    When  User clicks "Email Radio Button" element in login page
+    When  User fills out the "Email" input container with  "<emailInput>" in login page
+    When  User fills out the "Password" input container with  "<passwordInput>" in login page
+    When  User clicks "Login Button" element in login page
+    Then  User should see "<text>" text in "My Account Button" element in home page
+    Examples:
+      | pageTitle                |emailInput          |passwordInput       |text    |
+      | Üye Girişi - LC Waikiki  |vba98041@zcrcd.com  |3ZxP9PEkn2tYQad     |Hesabım |
