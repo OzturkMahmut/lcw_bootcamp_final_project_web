@@ -102,8 +102,15 @@ public class ElementHelper {
      *
      * @param key
      */
-    public void checkElementPresence(By key) {
-        wait.until(ExpectedConditions.presenceOfElementLocated(key));
+    public boolean checkElementPresence(By key) {
+        try {
+            wait.until(ExpectedConditions.presenceOfElementLocated(key));
+            return true;
+
+        }catch (Exception e){
+            System.out.println(e);
+            return false;
+        }
     }
 
     /**
@@ -175,16 +182,17 @@ public class ElementHelper {
      * @param key
      * @param text
      */
-    public void checkElementWithText(By key, String text) {
-        boolean find = false;
+    public boolean checkElementWithText(By key, String text) {
+        boolean isFound = false;
         List<WebElement> elements = findElements(key);
         for (WebElement element : elements) {
             if (element.getText().contains(text)) {
-                find = true;
+                isFound = true;
                 break;
             }
         }
-        Assert.assertEquals(true, find);
+        //Assert.assertEquals(true, isFound);
+        return isFound;
     }
 
     /**

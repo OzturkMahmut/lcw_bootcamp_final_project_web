@@ -15,8 +15,22 @@ public class signUpPageSteps {
     }
 
     @Then("User should see {string} element")
-    public void shouldSeeElement(String signUpFormElement) {
+    public void shouldSeeFormElement(String signUpFormElement) {
         signUpPage.checkSignUpFormElement(signUpFormElement);
     }
 
+    @When("User fills out the {string} input container with  {string}")
+    public void fillOutInputContainer(String container, String input) {
+        signUpPage.fillOutInputContainer(container,input);
+    }
+
+    @When("User checks {string} checkbox")
+    public void checkCheckbox(String checkboxName) {
+        signUpPage.checkCheckbox(checkboxName);
+    }
+
+    @When("User clicks  {string} element")
+    public void clicksButton(String element) {
+        signUpPage.clickElement(element);
+    }
 }

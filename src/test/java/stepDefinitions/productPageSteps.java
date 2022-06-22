@@ -12,7 +12,7 @@ public class productPageSteps {
 
 
     pages.productPage productPage = new productPage(DriverFactory.getDriver());
-    static Properties properties;
+    Properties properties;
 
     @Then("User should see product code info")
     public void shouldSeeProductCodeInfo() {
@@ -23,13 +23,12 @@ public class productPageSteps {
     @When("User choose size {string}")
     public void chooseSize(String size) {
         productPage.chooseSize(size);
+
     }
 
     @Then("User should see size {string} selected")
     public void shouldSeeSizeSelected(String size) {
         productPage.isSizeSelected(size);
-        properties = ConfigReader.getProperties();
-        properties.setProperty("selectedProductSize",size);
     }
 
     @Then("User adds the product to the cart")

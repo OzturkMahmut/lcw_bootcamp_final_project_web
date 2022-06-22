@@ -38,6 +38,8 @@ public class cartPage {
             elementHelper.checkElementPresence(productNumber);
         }else if (elementName.equals("ProductSize")) {
             properties = ConfigReader.getProperties();
+            System.out.println(elementHelper.findElement(productSize).getText());
+            System.out.println(properties.getProperty("selectedProductSize"));
             elementHelper.checkElementText(productSize,properties.getProperty("selectedProductSize"));
 
         }

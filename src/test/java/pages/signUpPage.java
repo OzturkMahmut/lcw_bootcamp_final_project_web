@@ -14,19 +14,19 @@ public class signUpPage {
 
     //Sign Up Form Element Selectors
     By formTitle = By.cssSelector("div .register__title");
-    By emailContainer = By.cssSelector("div .input-container");
-    By passwordContainer = By.cssSelector("div .input-container:nth-child(2)");
-    By showPasswordIcon = By.cssSelector("div .register__show-password-icon  ");
-    By phoneNumberContainer = By.cssSelector("div .input-container:nth-child(3)");
-    By emailCheckBox = By.cssSelector("div .register__optin-checkboxes input:nth-child(1)");
-    By callCheckBox = By.cssSelector("div .register__optin-checkboxes input:nth-child(2)");
-    By smsCheckBox = By.cssSelector("div .register__optin-checkboxes input:nth-child(3)");
+    By emailContainer = By.cssSelector("div .input-container:nth-child(1) .text-input ");
+    By passwordContainer = By.cssSelector("div .input-container:nth-child(2) .text-input ");
+    By showPasswordIcon = By.cssSelector("div .register__show-password-icon");
+    By phoneNumberContainer = By.cssSelector("div .input-container:nth-child(3) .text-input ");
+    By emailCheckBox = By.cssSelector("div .register__optin-checkboxes input[name=isEmailChecked]");
+    By callCheckBox = By.cssSelector("div .register__optin-checkboxes input[name=isCallChecked]");
+    By smsCheckBox = By.cssSelector("div .register__optin-checkboxes input[name=isSmsChecked]");
     By registerInfoContainer = By.cssSelector("div .register__information-container");
-    By termsOfUseCheckBox = By.cssSelector("div #member-privacy-approve-container");
+    By termsOfUseCheckBox = By.cssSelector("div #member-privacy-approve-container .checkbox-input ");
     By clarificationText = By.cssSelector("div .aydinlatma-metni");
     By signUpButton = By.cssSelector("div .register__button--blue");
     By loginButton = By.cssSelector("div .register__link");
-
+    By phoneConfirmationPopUp = By.cssSelector("    div .react-base-modal.confirmation-code-modal");
 
     public signUpPage(WebDriver driver) {
         this.driver = driver;
@@ -40,7 +40,7 @@ public class signUpPage {
 
 
     public void checkSignUpFormElement(String signUpFormElement) {
-        switch(signUpFormElement) {
+        switch (signUpFormElement) {
             case "SignUp Form Title":
                 elementHelper.checkElementPresence(formTitle);
                 break;
@@ -53,7 +53,7 @@ public class signUpPage {
             case "Show Password Icon":
                 elementHelper.checkElementPresence(showPasswordIcon);
                 break;
-            case "Phone Number input container":
+            case "Phone Number Input Container":
                 elementHelper.checkElementPresence(phoneNumberContainer);
                 break;
             case "Email CheckBox":
@@ -80,10 +80,56 @@ public class signUpPage {
             case "Login Button":
                 elementHelper.checkElementPresence(loginButton);
                 break;
+            case "Phone Confirmation Pop Up":
+                elementHelper.checkElementPresence(phoneConfirmationPopUp);
+                break;
             default:
         }
 
     }
 
 
+    public void fillOutInputContainer(String container, String input) {
+        switch (container) {
+            case "Email":
+                elementHelper.sendKey(emailContainer, input);
+                break;
+            case "Password":
+                elementHelper.sendKey(passwordContainer, input);
+                break;
+            case "Phone Number":
+                elementHelper.sendKey(phoneNumberContainer, input);
+                break;
+            default:
+        }
+    }
+
+    public void checkCheckbox(String checkboxName) {
+        switch (checkboxName) {
+            case "Email":
+                elementHelper.click(emailCheckBox);
+                break;
+            case "Call":
+                elementHelper.click(callCheckBox);
+                break;
+            case "Sms":
+                elementHelper.click(smsCheckBox);
+                break;
+            case "Terms of Use":
+                elementHelper.click(termsOfUseCheckBox);
+                break;
+            default:
+        }
+    }
+
+    public void clickElement(String element) {
+        switch (element) {
+            case "Sign Up Button":
+                elementHelper.click(signUpButton);
+                break;
+            case "Login Button":
+                elementHelper.click(loginButton);
+                break;
+        }
+    }
 }
