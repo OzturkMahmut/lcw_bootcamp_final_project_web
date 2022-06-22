@@ -1,7 +1,7 @@
 @CartPage
 Feature: Cart Page
 
-  @Category @Click @Filter
+  @CheckProduct @FinishOrder
   Scenario Outline: Add a Product to Cart and Check it on the Cart Page
     Given User is on home page
     When  User clicks "<subCategory>" subcategory in "<category>" category
@@ -13,11 +13,14 @@ Feature: Cart Page
     When  User choose size "<size>"
     Then  User should see size "<size>" selected
     Then  User adds the product to the cart
-    When  User clicks "Sepetim" button
-    Then  User should see "Title" in cart page
+    When  User clicks "MyCart Button" element in product page
+    Then  User should see "<pageTitle>" pageTitle
     Then  User should see "ProductCode" in cart page
-    Then  User should see "ProductNumber" in cart page
+    Then  User should see "ProductQuantity" in cart page
     Then  User should see "ProductSize" in cart page
+    When  User clicks "Complete Order Button" element in cart page
+    Then  User should see "New Address Form" element in checkout page
+
     Examples:
-      | subCategory   | category |   productType    |    filterValue    | filterType  | size |
-      |    Bluz       |  KADIN   |       Bluz       |       Siyah       |  Renk       |  M   |
+      | pageTitle             | subCategory   | category |   productType    |    filterValue    | filterType  | size |
+      | Sepetim - LC Waikiki  |    Bluz       |  KADIN   |       Bluz       |       Siyah       |  Renk       |  M   |

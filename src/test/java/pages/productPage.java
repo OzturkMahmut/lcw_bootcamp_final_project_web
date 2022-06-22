@@ -16,7 +16,9 @@ public class productPage {
     ElementHelper elementHelper;
     Properties properties;
 
-    By productCode = By.cssSelector("div .product-code");
+    By productCode = By.cssSelector("div .col-xs-7.col-sm-9 .product-code");
+    By productQuantity = By.cssSelector("div .item-quantity-input.ignored");
+
     By sizes = By.cssSelector("div .option-size a");
     By selectedSize = By.cssSelector("div .option-size .selected");
     By addToCartContainer = By.cssSelector(".add-to-cart-container");
@@ -27,19 +29,22 @@ public class productPage {
         this.driver = driver;
         this.wait = new WebDriverWait(driver, 10);
         this.elementHelper = new ElementHelper(driver);
+        this.properties = ConfigReader.getProperties();
     }
 
 
     public void checkProductCodePresence() {
-        elementHelper.checkElementPresence(productCode);
         if(elementHelper.checkElementPresence(toolTip)){ //if the tool tip is blocking any action
-            elementHelper.click(productCode); //click anywhere else in the page
-            //I chose product code because its By locator is already found and click won't trigger any action
-        }
+            elementHelper.click(toolTip);
+      }
+        elementHelper.checkElementPresence(productCode);
+        properties.setProperty("selectedProductCode",elementHelper.findElement(productCode).getText());
+        //TODO: sayı için ayrı bir fonksiyon veya birleşik bir fonksiyon yapılacak
+        //properties.setProperty("selectedProductQuantity",elementHelper.findElement(productQuantity).getAttribute("value"));
+
     }
 
     public void chooseSize(String size) {
-        properties = ConfigReader.getProperties();
         //some products have a standard size so there won't be any other choice
         if (!elementHelper.findElements(sizes).get(0).getText().equals("Standart")){
             //some products has sizes in letters, some has in numbers, or maybe there is no product in preferred size
@@ -68,7 +73,7 @@ public class productPage {
     }
 
     public void clickElement(String buttonName) {
-        if (buttonName.equals("Sepetim")){
+        if (buttonName.equals("MyCart Button")){
             elementHelper.click(myCartButton);
         }
     }

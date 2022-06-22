@@ -36,7 +36,7 @@ public class productPageSteps {
         productPage.addToCart();
     }
 
-    @When("User clicks {string} button")
+    @When("User clicks {string} element in product page")
     public void clickButton(String buttonName) {
         productPage.clickElement(buttonName);
     }
