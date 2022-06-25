@@ -18,7 +18,7 @@ public class checkoutPage {
 
     By newAddressForm  = By.cssSelector("div .customerAddressModel.v--modal-overlay.scrollable .v--modal-box.v--modal");
     By fullNameInput  = By.cssSelector("#FullNameInput");
-
+    By withoutLoginForm = By.cssSelector("div .login-form.without-login-form");
 
     public checkoutPage(WebDriver driver) {
         this.driver = driver;
@@ -38,6 +38,9 @@ public class checkoutPage {
                 break;
             case "Full Name Input":
                 elementHelper.checkElementPresence(fullNameInput);
+                break;
+            case "Order without Login Form":
+                elementHelper.checkElementPresence(withoutLoginForm);
                 break;
         }
     }

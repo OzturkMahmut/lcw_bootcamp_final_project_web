@@ -19,7 +19,7 @@ Feature: Cart Page
     Then  User should see "ProductQuantity" in cart page
     Then  User should see "ProductSize" in cart page
     When  User clicks "Complete Order Button" element in cart page
-    Then  User should see "New Address Form" element in checkout page
+    Then  User should see "Order without Login Form" element in checkout page
 
     Examples:
       | pageTitle             | subCategory   | category |   productType    |    filterValue    | filterType  | size |

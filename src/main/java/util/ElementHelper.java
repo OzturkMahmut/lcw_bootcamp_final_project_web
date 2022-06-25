@@ -252,9 +252,7 @@ public class ElementHelper {
         boolean isFound = false;
         List<WebElement> elements = findElements(selector);
         WebElement desElement = null;
-
         for (WebElement element : elements) {
-            System.out.println(element.getText());
             if (element.getText().contains(text)) {
                 desElement = element;
                 isFound = true;
