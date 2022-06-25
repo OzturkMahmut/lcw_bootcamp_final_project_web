@@ -12,8 +12,8 @@ Feature: Login Page
     Then  User should see "Phone Radio Button" element in login page
     Then  User should see "Email Input Container" element in login page
     Then  User should see "Password Input Container" element in login page
-    Then  User should see "<emailPlaceholder>" text in "Email Input Container" element in login page
-    Then  User should see "<passwordPlaceholder>" text in "Password Input Container" element in login page
+    Then  User should see "<emailPlaceholder>" text in "Email Input Container Placeholder" element in login page
+    Then  User should see "<passwordPlaceholder>" text in "Password Input Container Placeholder" element in login page
     Then  User should see "Show Password Icon" element in login page
     Then  User should see "<rememberMeText>" text in "Remember Me" element in login page
     Then  User should see "Forgot Password Link" element in login page

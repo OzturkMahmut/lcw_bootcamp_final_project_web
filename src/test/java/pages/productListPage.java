@@ -25,21 +25,43 @@ public class productListPage {
         this.elementHelper = new ElementHelper(driver);
     }
 
+    /**
+     * check if the page header contains the given text parameter
+     *
+     * @param headerText String
+     */
     public void checkHeader(String headerText) {
-        elementHelper.checkElementTextContains(header,headerText);
+        elementHelper.checkElementTextContains(header, headerText);
     }
 
+    /**
+     * filter the products by the desired filter value
+     *
+     * @param filterType  String
+     * @param filterValue String
+     */
     public void filterProductBy(String filterType, String filterValue) {
-        elementHelper.clickElementWithText(filterOptions,filterValue);
+        elementHelper.clickElementWithText(filterOptions, filterValue);
     }
 
+    /**
+     * check if the desired filter value is applied correctly
+     *
+     * @param filterType  String
+     * @param filterValue String
+     */
     public void checkAppliedFilter(String filterType, String filterValue) {
-        elementHelper.checkElementWithText(appliedFilters,filterType);
-        elementHelper.checkElementWithText(appliedFilterValues,filterValue);
+        elementHelper.checkElementWithText(appliedFilters, filterType);
+        elementHelper.checkElementWithText(appliedFilterValues, filterValue);
 
     }
 
+    /**
+     * click the nth element in the product list
+     *
+     * @param index int
+     */
     public void clickElementWithIndex(int index) {
-        elementHelper.findElements(productList).get(index+1).click();
+        elementHelper.findElements(productList).get(index + 1).click();
     }
 }

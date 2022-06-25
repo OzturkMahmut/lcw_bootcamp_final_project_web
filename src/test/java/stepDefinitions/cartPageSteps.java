@@ -18,7 +18,7 @@ public class cartPageSteps {
 
 
     @When("User clicks {string} element in cart page")
-    public void userClicksElementInCartPage(String elementName) {
+    public void clicksElement(String elementName) {
         cartPage.clickElement(elementName);
     }
 }

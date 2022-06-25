@@ -12,7 +12,7 @@ public class checkoutPageSteps {
 
 
     @Then("User should see {string} element in checkout page")
-    public void userShouldSeeInCheckoutPage(String elementName) {
+    public void shouldSee(String elementName) {
         checkoutPage.checkElement(elementName);
     }
 }

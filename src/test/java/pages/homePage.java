@@ -2,11 +2,8 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import util.ElementHelper;
-
-import java.util.List;
 
 
 public class homePage {
@@ -30,38 +27,67 @@ public class homePage {
         this.elementHelper = new ElementHelper(driver);
     }
 
-
+    /**
+     * check if the website is loaded,
+     * then close cookies and coupon banner if the appear on the screen
+     * to clear the screen to perform further actions without any problems.
+     */
     public void checkHomePage() {
         elementHelper.checkElementPresence(brandLogo);
         elementHelper.click(cookiesAcceptButton); //Accepts the cookies in case cookies banner blocks any future action
-        if (elementHelper.checkElementPresence(couponCloseButton)){
+        if (elementHelper.checkElementPresenceBool(couponCloseButton)) {
             elementHelper.click(couponCloseButton);   //Closes the coupon pop-up in case it blocks any future action
         }
 
     }
 
+    /**
+     * check if the brand logo is present on the DOM of a page
+     */
     public void checkBanner() {
         elementHelper.checkElementPresence(brandLogo);
     }
 
+    /**
+     * check if a category exist in categories list
+     *
+     * @param categoryName String
+     */
     public void checkCategory(String categoryName) {
         elementHelper.checkElementWithText(categories, categoryName);
     }
 
-
+    /**
+     * hover over a category
+     *
+     * @param category String
+     */
     public void hoverOverCategory(String category) {
         elementHelper.hoverOverElementWithText(categories, category);
     }
 
+    /**
+     * a method to click sign up button in homepage
+     */
     public void hoverOverLoginClickSignUp() {
         elementHelper.hoverOverElement(loginButton);
         elementHelper.click(signUpButton);
     }
 
+    /**
+     * click the sub-category with the given string parameter
+     *
+     * @param subCategory String
+     */
     public void clickSubCategory(String subCategory) {
         elementHelper.clickElementWithText(subCategories, subCategory);
     }
 
+    /**
+     * click the element with the given string parameter
+     *
+     * @param elementName String
+     */
     public void clickElement(String elementName) {
         switch (elementName) {
             case "Login Button":
@@ -71,13 +97,20 @@ public class homePage {
         }
     }
 
+    /**
+     * check if the visible text of the element with the given string parameter
+     * equals to the given parameter text
+     *
+     * @param text        String
+     * @param elementName String
+     */
     public void checkElementText(String text, String elementName) {
         switch (elementName) {
             case "My Account Button":
-                elementHelper.checkElementWithText(myAccountButton,text);
+                elementHelper.checkElementWithText(myAccountButton, text);
                 break;
             case "Login Button":
-                elementHelper.checkElementWithText(loginButton,text);
+                elementHelper.checkElementWithText(loginButton, text);
                 break;
             default:
         }

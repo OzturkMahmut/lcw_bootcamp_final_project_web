@@ -122,11 +122,11 @@ public class ElementHelper {
 
     /**
      * check if the element is present on the DOM of a page
-     *
+     * does not throw an exception
      * @param selector By
      * @return boolean
      */
-    public boolean checkElementPresence(By selector) {
+    public boolean checkElementPresenceBool(By selector) {
         try {
             wait.until(ExpectedConditions.presenceOfElementLocated(selector));
             return true;
@@ -135,6 +135,15 @@ public class ElementHelper {
             System.out.println(e);
             return false;
         }
+    }
+
+    /**
+     * check if the element is present on the DOM of a page
+     *
+     * @param selector By
+     */
+    public void checkElementPresence(By selector) {
+            wait.until(ExpectedConditions.presenceOfElementLocated(selector));
     }
 
     /**
@@ -155,6 +164,17 @@ public class ElementHelper {
      */
     public String getAttribute(By selector, String attr) {
         return findElement(selector).getAttribute(attr);
+    }
+
+    /**
+     * Get the value of the given attribute of the element.
+     *
+     * @param element  WebElement
+     * @param attr     String
+     * @return WebElement
+     */
+    public String getAttribute(WebElement element, String attr) {
+        return element.getAttribute(attr);
     }
 
     /**
@@ -227,16 +247,21 @@ public class ElementHelper {
      * @param selector By
      * @param text     String
      */
-    public void checkElementWithText(By selector, String text) {
+    public WebElement checkElementWithText(By selector, String text) {
         boolean isFound = false;
         List<WebElement> elements = findElements(selector);
+        WebElement desElement = null;
+
         for (WebElement element : elements) {
+            System.out.println(element.getText());
             if (element.getText().contains(text)) {
+                desElement = element;
                 isFound = true;
                 break;
             }
         }
         Assert.assertTrue(isFound);
+        return desElement;
     }
 
     /**

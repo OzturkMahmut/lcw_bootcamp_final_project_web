@@ -5,7 +5,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import util.ConfigReader;
-import util.DriverFactory;
 import util.ElementHelper;
 
 import java.util.Properties;
@@ -32,28 +31,35 @@ public class cartPage {
         this.properties = ConfigReader.getProperties();
     }
 
-
+    /**
+     * check if the product properties seen on page are equal to
+     * the product properties that are stored in config file
+     * when adding a product to the cart.
+     *
+     * @param elementName String
+     */
     public void checkElementValue(String elementName) {
         boolean isTrue = false;
         switch (elementName) {
             case "ProductCode":
-                System.out.println("1:" + properties.getProperty("selectedProductCode"));
-                System.out.println("2:" +elementHelper.findElement(productCode).getText());
                 isTrue = properties.getProperty("selectedProductCode").contains(elementHelper.findElement(productCode).getText());
-                //isTrue = elementHelper.checkElementTextContains(productCode, properties.getProperty("selectedProductCode"));
                 break;
             case "ProductQuantity":
-                isTrue =elementHelper.findElement(productQuantity).getAttribute("value").equals( properties.getProperty("selectedProductQuantity"));
-               // isTrue = elementHelper.checkElementText(productQuantity, properties.getProperty("selectedProductQuantity"));
+                isTrue = elementHelper.findElement(productQuantity).getAttribute("value").equals(properties.getProperty("selectedProductQuantity"));
                 break;
             case "ProductSize":
                 isTrue = elementHelper.checkElementText(productSize, properties.getProperty("selectedProductSize"));
                 break;
             default:
         }
-        Assert.assertEquals(true, isTrue);
+        Assert.assertTrue(isTrue);
     }
 
+    /**
+     * click the element given by its intuitive name
+     *
+     * @param elementName String
+     */
     public void clickElement(String elementName) {
         switch (elementName) {
             case "Complete Order Button":

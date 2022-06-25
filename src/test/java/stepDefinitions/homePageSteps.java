@@ -38,7 +38,7 @@ public class homePageSteps {
     }
 
     @When("User clicks {string} element in homepage")
-    public void clicksElement(String elementName) {
+    public void clickElement(String elementName) {
         homePage.clickElement(elementName);
     }
 

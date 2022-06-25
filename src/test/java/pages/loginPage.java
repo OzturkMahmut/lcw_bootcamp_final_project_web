@@ -25,6 +25,7 @@ public class loginPage {
     By loginFormSignUpButton = By.cssSelector("div .login-form__link");
     By phoneInputContainer = By.cssSelector("div .login-form__phone.text-input");
 
+    //Login Form Error Selectors
     By emailError = By.cssSelector(".login-form > form:nth-child(2) > div:nth-child(2) > div:nth-child(2)");
     By passwordError = By.cssSelector(".login-form__password .error");
     By loginError = By.cssSelector("div .login-form__header-errors--p ");
@@ -35,7 +36,11 @@ public class loginPage {
         this.elementHelper = new ElementHelper(driver);
     }
 
-
+    /**
+     * click the element with the given string parameter
+     *
+     * @param elementName String
+     */
     public void clickElement(String elementName) {
         switch (elementName) {
             case "Email Radio Button":
@@ -53,6 +58,11 @@ public class loginPage {
         }
     }
 
+    /**
+     * check if an element exist with the given elementName.
+     *
+     * @param elementName String
+     */
     public void checkElement(String elementName) {
         switch (elementName) {
             case "Email Radio Button":
@@ -87,23 +97,42 @@ public class loginPage {
 
     }
 
+    /**
+     * check if the visible text of the element with the given string parameter
+     * equals to the given parameter text
+     *
+     * @param text        String
+     * @param elementName String
+     */
     public void checkElementText(String text, String elementName) {
         switch (elementName) {
             case "Form Title":
-                elementHelper.checkElementWithText(loginFormTitle,text);
+                elementHelper.checkElementWithText(loginFormTitle, text);
                 break;
             case "Email Input Container":
-                elementHelper.checkElementWithText(emailInputContainer,text);
+                elementHelper.checkElementWithText(emailInputContainer, text);
                 break;
             case "Password Input Container":
-                elementHelper.checkElementWithText(passwordInputContainer,text);
+                elementHelper.checkElementWithText(passwordInputContainer, text);
+                break;
+            case "Email Input Container Placeholder":
+                elementHelper.checkAttribute(emailInputContainer,"placeholder",text);
+                break;
+            case "Password Input Container Placeholder":
+                elementHelper.checkAttribute(passwordInputContainer,"placeholder",text);
                 break;
             case "Remember Me":
-                elementHelper.checkElementWithText(rememberMeCheckBox,text);
+                elementHelper.checkElementWithText(rememberMeCheckBox, text);
                 break;
         }
     }
 
+    /**
+     * find the element(e.g. input container) and input the given text parameter
+     *
+     * @param container String
+     * @param input     String
+     */
     public void fillOutInputContainer(String container, String input) {
         switch (container) {
             case "Email":

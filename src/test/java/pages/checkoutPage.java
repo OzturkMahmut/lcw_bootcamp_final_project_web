@@ -26,7 +26,11 @@ public class checkoutPage {
         this.elementHelper = new ElementHelper(driver);
     }
 
-
+    /**
+     * check if an element exist with the given elementName.
+     *
+     * @param elementName String
+     */
     public void checkElement(String elementName) {
         switch (elementName) {
             case "New Address Form":

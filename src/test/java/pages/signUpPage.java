@@ -22,11 +22,13 @@ public class signUpPage {
     By callCheckBox = By.cssSelector("div .register__optin-checkboxes input[name=isCallChecked]");
     By smsCheckBox = By.cssSelector("div .register__optin-checkboxes input[name=isSmsChecked]");
     By registerInfoContainer = By.cssSelector("div .register__information-container");
-    By termsOfUseCheckBox = By.cssSelector("div #member-privacy-approve-container .checkbox-input ");
+    By termsOfUseCheckBox = By.cssSelector("div #member-privacy-approve-container .checkbox-input");
     By clarificationText = By.cssSelector("div .aydinlatma-metni");
     By signUpButton = By.cssSelector("div .register__button--blue");
     By loginButton = By.cssSelector("div .register__link");
-    By phoneConfirmationPopUp = By.cssSelector("    div .react-base-modal.confirmation-code-modal");
+    By phoneConfirmationPopUp = By.cssSelector("div .react-base-modal.confirmation-code-modal");
+
+
 
     public signUpPage(WebDriver driver) {
         this.driver = driver;
@@ -34,11 +36,21 @@ public class signUpPage {
         this.elementHelper = new ElementHelper(driver);
     }
 
+    /**
+     * check if the page title is the same as the given text parameter
+     *
+     * @param pageTitle String
+     */
     public void checkPageTitle(String pageTitle) {
         elementHelper.checkTitle(pageTitle);
     }
 
 
+    /**
+     * check if a sign up form element exist with the given text parameter signUpFormElement.
+     *
+     * @param signUpFormElement String
+     */
     public void checkSignUpFormElement(String signUpFormElement) {
         switch (signUpFormElement) {
             case "SignUp Form Title":
@@ -88,7 +100,12 @@ public class signUpPage {
 
     }
 
-
+    /**
+     * find the element(e.g. input container) and input the given text parameter
+     *
+     * @param container String
+     * @param input     String
+     */
     public void fillOutInputContainer(String container, String input) {
         switch (container) {
             case "Email":
@@ -104,6 +121,11 @@ public class signUpPage {
         }
     }
 
+    /**
+     * check if a checkbox element exist with the given text parameter checkboxName.
+     *
+     * @param checkboxName String
+     */
     public void checkCheckbox(String checkboxName) {
         switch (checkboxName) {
             case "Email":
@@ -116,12 +138,18 @@ public class signUpPage {
                 elementHelper.click(smsCheckBox);
                 break;
             case "Terms of Use":
+                System.out.println("ininini");
                 elementHelper.click(termsOfUseCheckBox);
                 break;
             default:
         }
     }
 
+    /**
+     * click the element given by its intuitive name
+     *
+     * @param element String
+     */
     public void clickElement(String element) {
         switch (element) {
             case "Sign Up Button":
