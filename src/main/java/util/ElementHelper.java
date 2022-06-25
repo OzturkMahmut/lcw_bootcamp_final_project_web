@@ -23,34 +23,42 @@ public class ElementHelper {
     }
 
     /**
-     * @param key
-     * @return
+     * find the element
+     *
+     * @param selector By
+     * @return element
      */
-    public WebElement findElement(By key) {
-        WebElement element = presenceElement(key);
+    public WebElement findElement(By selector) {
+        WebElement element = presenceElement(selector);
         scrollToElement(element);
         return element;
     }
 
     /**
-     * @param key
-     * @return
+     * find the elements of same type and return them in a list
+     *
+     * @param selector By
+     * @return elements
      */
-    public List<WebElement> findElements(By key) {
-        List<WebElement> elements = presenceElements(key);
+    public List<WebElement> findElements(By selector) {
+        List<WebElement> elements = presenceElements(selector);
         scrollToElement(elements.get(0));
         return elements;
     }
 
     /**
-     * @param selector
+     * find the element and click it
+     *
+     * @param selector By
      */
     public void click(By selector) {
         findElement(selector).click();
     }
 
     /**
-     * @param element
+     * find the element and clicks it
+     *
+     * @param element WebElement
      */
     public void click(WebElement element) {
         scrollToElement(element);
@@ -58,90 +66,115 @@ public class ElementHelper {
     }
 
     /**
-     * @param key
-     * @param text
+     * find the element(e.g. input container) and input the given text parameter
+     *
+     * @param selector By
+     * @param text     String
      */
-    public void sendKey(By key, String text) {
-        findElement(key).sendKeys(text);
+    public void sendKey(By selector, String text) {
+        findElement(selector).sendKeys(text);
     }
 
     /**
-     * @param key
-     * @return
+     * find the element and get the visible text of this element
+     *
+     * @param selector By
      */
-    public String getText(By key) {
-        return findElement(key).getText();
+    public String getText(By selector) {
+        return findElement(selector).getText();
     }
 
     /**
-     * @param key
-     * @param text
-     * @return
+     * compare the visible text of the element with the given text parameter
+     *
+     * @param selector By
+     * @param text     String
      */
-    public boolean checkElementText(By key, String text) {
-        return wait.until(ExpectedConditions.textToBe(key, text));
+    public boolean checkElementText(By selector, String text) {
+        return wait.until(ExpectedConditions.textToBe(selector, text));
     }
 
+    /**
+     * check if the visible text of the element contains the given text parameter
+     *
+     * @param selector By
+     * @param text     String
+     * @return boolean
+     */
     public boolean checkElementTextContains(By selector, String text) {
         boolean isFound = false;
         WebElement element = findElement(selector);
         if (element.getText().contains(text)) {
             isFound = true;
         }
-        Assert.assertEquals(true, isFound);
+        Assert.assertTrue(isFound);
         return isFound;
     }
+
     /**
-     * @param key
+     * check if the element is visible on screen
+     *
+     * @param selector By
      */
-    public void checkElementVisible(By key) {
-        wait.until(ExpectedConditions.visibilityOf(findElement(key)));
+    public void checkElementVisible(By selector) {
+        wait.until(ExpectedConditions.visibilityOf(findElement(selector)));
     }
 
     /**
+     * check if the element is present on the DOM of a page
      *
-     * @param key
+     * @param selector By
+     * @return boolean
      */
-    public boolean checkElementPresence(By key) {
+    public boolean checkElementPresence(By selector) {
         try {
-            wait.until(ExpectedConditions.presenceOfElementLocated(key));
+            wait.until(ExpectedConditions.presenceOfElementLocated(selector));
             return true;
 
-        }catch (Exception e){
+        } catch (Exception e) {
             System.out.println(e);
             return false;
         }
     }
 
     /**
-     * @param text
-     * @return
+     * check if the title of a page is equals to the given text parameter
+     *
+     * @param text String
      */
     public boolean checkTitle(String text) {
         return wait.until(ExpectedConditions.titleIs(text));
     }
 
     /**
-     * @param key
-     * @param attr
-     * @return
+     * Get the value of the given attribute of the element.
+     *
+     * @param selector By
+     * @param attr     String
+     * @return WebElement
      */
-    public String getAttribute(By key, String attr) {
-        return findElement(key).getAttribute(attr);
+    public String getAttribute(By selector, String attr) {
+        return findElement(selector).getAttribute(attr);
     }
 
     /**
-     * @param key
-     * @param attr
-     * @param text
+     * Get the value of the given attribute of the element and check
+     * if it is equal to the given parameter text
+     *
+     * @param selector By
+     * @param attr     String
+     * @param text     String
      */
-    public void checkAttribute(By key, String attr, String text) {
-        Assert.assertEquals(getAttribute(key, attr), text);
+    public void checkAttribute(By selector, String attr, String text) {
+        Assert.assertEquals(getAttribute(selector, attr), text);
     }
 
     /**
-     * @param selector
-     * @param text
+     * find the elements of same type and click the element with
+     * the text matching the given text parameter
+     *
+     * @param selector By
+     * @param text     String
      */
     public void clickElementWithText(By selector, String text) {
         boolean find = false;
@@ -153,13 +186,19 @@ public class ElementHelper {
                 break;
             }
         }
-        Assert.assertEquals(true, find);
+        Assert.assertTrue(find);
     }
 
-
-    public void hoverOverElementWithText(By key, String text) {
+    /**
+     * find the elements of same type and hover over the element with
+     * the text matching the given text parameter
+     *
+     * @param selector By
+     * @param text     String
+     */
+    public void hoverOverElementWithText(By selector, String text) {
         boolean find = false;
-        List<WebElement> elements = findElements(key);
+        List<WebElement> elements = findElements(selector);
         for (WebElement element : elements) {
             System.out.println(element.getText());
             if (element.getText().contains(text)) {
@@ -168,41 +207,72 @@ public class ElementHelper {
                 break;
             }
         }
-        Assert.assertEquals(true, find);
+        Assert.assertTrue(find);
     }
 
+    /**
+     * find the element and hover over the element
+     *
+     * @param selector By
+     */
     public void hoverOverElement(By selector) {
         WebElement element = findElement(selector);
         action.moveToElement(element).perform();
-
-        }
-
+    }
 
     /**
-     * @param key
-     * @param text
+     * find the elements of same type and check if an element with
+     * the text containing the given text parameter exists
+     *
+     * @param selector By
+     * @param text     String
      */
-    public boolean checkElementWithText(By key, String text) {
+    public void checkElementWithText(By selector, String text) {
         boolean isFound = false;
-        List<WebElement> elements = findElements(key);
+        List<WebElement> elements = findElements(selector);
         for (WebElement element : elements) {
             if (element.getText().contains(text)) {
                 isFound = true;
                 break;
             }
         }
-        //Assert.assertEquals(true, isFound);
+        Assert.assertTrue(isFound);
+    }
+
+    /**
+     * find the elements of same type and check if an element with
+     * the text containing the given text parameter exists
+     * this method does not throw an exception if an element is not found
+     * but simply returns a boolean false
+     *
+     * @param selector By
+     * @param text     String
+     * @return boolean
+     */
+    public boolean checkElementWithTextBool(By selector, String text) {
+        boolean isFound = false;
+        List<WebElement> elements = findElements(selector);
+        for (WebElement element : elements) {
+            if (element.getText().contains(text)) {
+                isFound = true;
+                break;
+            }
+        }
         return isFound;
     }
 
     /**
-     * @param key
-     * @param text
-     * @param text2
+     * list the elements of same type and find the element with
+     * the text matching the given text parameter, then input the text
+     * given with the parameter text2
+     *
+     * @param selector By
+     * @param text     String
+     * @param text2    String
      */
-    public void sendKeyElementWithText(By key, String text, String text2) {
+    public void sendKeyElementWithText(By selector, String text, String text2) {
         boolean find = false;
-        List<WebElement> elements = findElements(key);
+        List<WebElement> elements = findElements(selector);
         for (WebElement element : elements) {
             if (element.getText().equals(text)) {
                 element.sendKeys(text2);
@@ -210,27 +280,33 @@ public class ElementHelper {
                 break;
             }
         }
-        Assert.assertEquals(true, find);
+        Assert.assertTrue(find);
     }
 
     /**
-     * @param key
-     * @return
+     * check if the element is present on the DOM of a page
+     *
+     * @param selector By
+     * @return WebElement
      */
-    public WebElement presenceElement(By key) {
-        return wait.until(ExpectedConditions.presenceOfElementLocated(key));
+    public WebElement presenceElement(By selector) {
+        return wait.until(ExpectedConditions.presenceOfElementLocated(selector));
     }
 
     /**
-     * @param key
-     * @return
+     * check if the element list is present on the DOM of a page
+     *
+     * @param selector By
+     * @return WebElement list
      */
-    public List<WebElement> presenceElements(By key) {
-        return wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(key));
+    public List<WebElement> presenceElements(By selector) {
+        return wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(selector));
     }
 
     /**
-     * @param element
+     * scroll to the element and place it in the middle of the screen
+     *
+     * @param element WebElement
      */
     public void scrollToElement(WebElement element) {
         String scrollElementIntoMiddle = "var viewPortHeight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);"
@@ -239,6 +315,4 @@ public class ElementHelper {
         ((JavascriptExecutor) driver).executeScript(scrollElementIntoMiddle, element);
 
     }
-
-
 }

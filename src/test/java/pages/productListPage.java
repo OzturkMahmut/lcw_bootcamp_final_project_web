@@ -40,6 +40,6 @@ public class productListPage {
     }
 
     public void clickElementWithIndex(int index) {
-        elementHelper.click(elementHelper.findElements(productList).get(index+1));
+        elementHelper.findElements(productList).get(index+1).click();
     }
 }

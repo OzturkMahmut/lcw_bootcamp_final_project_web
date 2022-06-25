@@ -8,7 +8,7 @@ Feature: Product Page
     Then  User should see "<productType>" page
     When  User filters "<filterType>" of the products by "<filterValue>"
     Then  User should see "<filterType>" and "<filterValue>" in chosen filters area
-    When  User clicks on the 8. item
+    When  User clicks on the 8. item in the product list
     Then  User should see product code info
     When  User choose size "<size>"
     Then  User should see size "<size>" selected

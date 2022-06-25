@@ -32,8 +32,8 @@ Feature: Sign Up Page
     When  User fills out the "Email" input container with  "<emailInput>" in sign up page
     When  User fills out the "Password" input container with  "<passwordInput>" in sign up page
     When  User fills out the "Phone Number" input container with  "<phoneNumberInput>" in sign up page
-    When  User checks "Terms of Use" checkbox
-    When  User clicks  "Sign Up Button" element
+    When  User checks "Terms of Use" checkbox in sign-up page
+    When  User clicks  "Sign Up Button" element in sign-up page
     Then  User should see "Phone Confirmation Pop Up" element in sign-up page
     Examples:
       | pageTitle            |emailInput           |passwordInput |phoneNumberInput  |

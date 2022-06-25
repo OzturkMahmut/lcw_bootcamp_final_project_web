@@ -48,11 +48,11 @@ public class productPage {
         //some products have a standard size so there won't be any other choice
         if (!elementHelper.findElements(sizes).get(0).getText().equals("Standart")){
             //some products has sizes in letters, some has in numbers, or maybe there is no product in preferred size
-           if (!elementHelper.checkElementWithText(sizes,size)){
+           if (!elementHelper.checkElementWithTextBool(sizes,size)){
                elementHelper.findElements(sizes).get(0).click(); //choose the first for no interruption to process
                properties.setProperty("selectedProductSize",elementHelper.findElements(sizes).get(0).getText());
                System.out.println("Product has another type of size labeling, or preferred size is out of stock");
-           }else{ //finally if product has
+           }else{ //finally if product is available in desired size
                elementHelper.clickElementWithText(sizes,size);
                properties.setProperty("selectedProductSize",size);
            }

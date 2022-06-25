@@ -28,7 +28,7 @@ public class productListPageSteps {
     }
 
 
-    @When("User clicks on the {int}. item")
+    @When("User clicks on the {int}. item in the product list")
     public void clickNthElementInList(int index) {
         productListPage.clickElementWithIndex(index);
     }

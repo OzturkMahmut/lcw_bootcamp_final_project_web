@@ -24,12 +24,12 @@ public class signUpPageSteps {
         signUpPage.fillOutInputContainer(container,input);
     }
 
-    @When("User checks {string} checkbox")
+    @When("User checks {string} checkbox in sign-up page")
     public void checkCheckbox(String checkboxName) {
         signUpPage.checkCheckbox(checkboxName);
     }
 
-    @When("User clicks  {string} element")
+    @When("User clicks  {string} element in sign-up page")
     public void clicksButton(String element) {
         signUpPage.clickElement(element);
     }
