@@ -29,12 +29,12 @@ Feature: Sign Up Page
     Given User is on home page
     When  User hovers over Login button and clicks Sign Up Button in home page
     Then  User should see "<pageTitle>" pageTitle
+    When  User checks "Terms of Use" checkbox in sign-up page
     When  User fills out the "Email" input container with  "<emailInput>" in sign up page
     When  User fills out the "Password" input container with  "<passwordInput>" in sign up page
     When  User fills out the "Phone Number" input container with  "<phoneNumberInput>" in sign up page
-    When  User checks "Terms of Use" checkbox in sign-up page
     When  User clicks  "Sign Up Button" element in sign-up page
     Then  User should see "Phone Confirmation Pop Up" element in sign-up page
     Examples:
       | pageTitle            |emailInput           |passwordInput |phoneNumberInput  |
-      | Üye Ol - LC Waikiki  |seday30647@gmail.com |12345678a      |05234567890       |
+      | Üye Ol - LC Waikiki  |seday30647@gmail.com |12345678a      |234567890       |

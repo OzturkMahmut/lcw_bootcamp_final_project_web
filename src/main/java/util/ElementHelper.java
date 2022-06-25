@@ -10,6 +10,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 public class ElementHelper {
     WebDriver driver;
@@ -338,6 +339,6 @@ public class ElementHelper {
                 + "var elementTop = arguments[0].getBoundingClientRect().top;"
                 + "window.scrollBy(0, elementTop-(viewPortHeight/2));";
         ((JavascriptExecutor) driver).executeScript(scrollElementIntoMiddle, element);
-
+        wait.withTimeout(1000, TimeUnit.MILLISECONDS);
     }
 }

@@ -138,7 +138,6 @@ public class signUpPage {
                 elementHelper.click(smsCheckBox);
                 break;
             case "Terms of Use":
-                System.out.println("ininini");
                 elementHelper.click(termsOfUseCheckBox);
                 break;
             default:
