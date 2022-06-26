@@ -10,6 +10,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 public class ElementHelper {
     WebDriver driver;

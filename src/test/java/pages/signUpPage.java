@@ -153,6 +153,7 @@ public class signUpPage {
         switch (element) {
             case "Sign Up Button":
                 elementHelper.click(signUpButton);
+                System.out.println("clicked");
                 break;
             case "Login Button":
                 elementHelper.click(loginButton);

@@ -47,7 +47,7 @@ Feature: Login Page
 
 
   @Login @SuccessfulLogin
-  Scenario Outline: Check Phone Components
+  Scenario Outline: Successful Login
     Given User is on home page
     When  User clicks "Login Button" element in homepage
     Then  User should see "<pageTitle>" pageTitle

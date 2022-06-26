@@ -21,7 +21,7 @@ public class cartPage {
     By productQuantity = By.cssSelector(".item-quantity-input.ignored");
     By productCode = By.cssSelector("div .rd-cart-item-code  ");
     By productSize = By.cssSelector(".rd-cart-item-size strong ");
-    By completeOrderButton = By.cssSelector("div .col-md-12.pl-20.pr-20 .main-button.mt-15");
+    By completeOrderButton = By.cssSelector("div .col-md-12.pl-20.pr-20 .main-button.mb-10");
     By loginButton = By.cssSelector("div .cart-dropdown:nth-child(1)");
 
     public cartPage(WebDriver driver) {

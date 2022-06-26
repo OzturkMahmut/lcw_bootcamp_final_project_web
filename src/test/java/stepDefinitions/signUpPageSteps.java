@@ -30,7 +30,7 @@ public class signUpPageSteps {
     }
 
     @When("User clicks  {string} element in sign-up page")
-    public void clickButton(String element) {
+    public void clickElement(String element) {
         signUpPage.clickElement(element);
     }
 
