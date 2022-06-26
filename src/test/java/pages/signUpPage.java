@@ -24,7 +24,7 @@ public class signUpPage {
     By registerInfoContainer = By.cssSelector("div .register__information-container");
     By termsOfUseCheckBox = By.cssSelector("div #member-privacy-approve-container .checkbox-input");
     By clarificationText = By.cssSelector("div .aydinlatma-metni");
-    By signUpButton = By.cssSelector("div .register__button--blue");
+    By signUpButton = By.cssSelector("div .register__button.register__button--blue");
     By loginButton = By.cssSelector("div .register__link");
     By phoneConfirmationPopUp = By.cssSelector("div .react-base-modal.confirmation-code-modal");
 
@@ -153,6 +153,8 @@ public class signUpPage {
         switch (element) {
             case "Sign Up Button":
                 elementHelper.click(signUpButton);
+                elementHelper.click(signUpButton);
+
                 System.out.println("clicked");
                 break;
             case "Login Button":

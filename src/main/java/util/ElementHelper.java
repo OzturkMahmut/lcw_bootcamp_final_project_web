@@ -32,6 +32,11 @@ public class ElementHelper {
     public WebElement findElement(By selector) {
         WebElement element = presenceElement(selector);
         scrollToElement(element);
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         return element;
     }
 
