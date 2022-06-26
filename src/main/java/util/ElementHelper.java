@@ -57,7 +57,7 @@ public class ElementHelper {
     }
 
     /**
-     * find the element and clicks it
+     * find the element and click it
      *
      * @param element WebElement
      */
@@ -337,6 +337,5 @@ public class ElementHelper {
                 + "var elementTop = arguments[0].getBoundingClientRect().top;"
                 + "window.scrollBy(0, elementTop-(viewPortHeight/2));";
         ((JavascriptExecutor) driver).executeScript(scrollElementIntoMiddle, element);
-        wait.withTimeout(1000, TimeUnit.MILLISECONDS);
     }
 }
